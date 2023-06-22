@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Main Page</title>
+  <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+  <style>
+    body {
+      background-color: #FFD400;
+    }
+
+    #previewPicture {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      display: none; /* Initially hidden */
+    }
+  </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+          $("#profilePicture").on("change", function(event) {
+            var input = event.target;
+            if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              reader.onload = function(e) {
+                $("#previewPicture").css("display", "block");
+                $("#previewPicture").attr("src", e.target.result);
+              };
+              reader.readAsDataURL(input.files[0]);
+            }
+          });
+        });
+    </script>
+</head>
+<body>
+  <nav class="navLogo" id="navLogo">
+    <img class="logo" src="../CSS/logo.png" alt="">
+    <h1>RATE-EAT-UP</h1>
+  </nav>
+  <nav class="navMain">
+    <h1><a href="#navLogo">Home</a></h1>
+    <h1><a href="login.html">Log In</a></h1>
+    <h1><a href="restoList.html">Restos</a></h1>
+  </nav>
+
+  <section>
+    <h1>Edit Profile</h1>
+
+    <form id="profileForm" style="
+      margin: 5% 3%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: stretch;
+    ">
+      <label for="profilePicture">Profile Picture:</label>
+      <input type="file" id="profilePicture" accept="image/*">
+      <img id="previewPicture" src="transparent.png" alt="Preview" />
+
+      <label for="quote">Quote, Saying, or Summary:</label>
+      <input type="text" id="quote" />
+
+      <label for="description">Description:</label>
+      <input type="text" id="description" />
+
+      <button type="submit">Save</button>
+    </form>
+  </section>
+
+
+</body>
+</html>
