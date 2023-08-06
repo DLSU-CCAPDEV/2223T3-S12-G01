@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> {{profile.fname}} </title>
+	<link rel="stylesheet" type="text/css" href="../../../CSS/index.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="../js/profile.js" type="text/javascript"></script>
+	<style>
+		body{
+			background-color: #FFD400;
+		}
+	</style>
+</head>
+<body>
+	{{>navbar flag=flag uname=curUser owner=owner}}
+
+	<div class="profileSummary">
+        <div class = "profPic">
+            <img src="{{profile.profPic}}" class = "picture" alt="">
+            <div style="font-size: 40px; font-family: Carter One">{{profile.uname}}</div>
+			<div class = "fullname">			
+				<div style="font-size: 20px; font-family: Carter One; align-content: center;">{{profile.fname}}</div>
+				<div style="font-size: 20px; font-family: Carter One; align-content: center; padding-left: 5px">{{profile.lname}}</div>
+			</div>
+        </div>
+		
+
+		<div class = "random-fact">
+			<div class = "quote-stuff">
+				<div class = "quote">{{ profile.quoteMain }}</div>
+				<div class = "quote_desc" style = "font-size: 20px; font-family: Carter One;">{{ profile.quoteDesc }}</div>
+			</div>
+			<div style="font-size: 50px; width: 100%; font-family: Carter One; font-size: 40px;">About</h1></div>
+			<div style="font-size: 20px; font-family: Carter One;">{{ profile.about }}</div>
+		</div>
+    </div>
+	{{#if owner}}
+		<div class="editDiv" id="editArea"> 
+			<button class="editProfileButton" id="edit">Edit Profile</button>
+		</div>
+	{{/if}} 
+
+	<h1 style = "font-family: Carter One; margin-left: 10px;">Recent Reviews</h1>
+	<div class="reviewList">
+		{{#each profile.posts}}
+			{{> review this}}
+		{{/each}}
+	</div>
+
+	<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const replyButton = document.querySelectorAll(".editProfileButtonDIV");
+
+            replyButton.forEach((button) => {
+                button.style.display = "none";
+            });
+        });
+    </script>
+</body>
+</html>

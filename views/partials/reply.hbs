@@ -1,0 +1,12 @@
+<div class="reply" id="reply_${this._id}" style="margin-left: 3.5%; margin-top: 0.5%">
+    <br>
+    <br>
+    <p id="replyContent_${this._id}" style="border-left: 2px solid black; padding: 0% 0% 0% 2%">{{this.reply}}</p>
+    <button class="editBtn" onclick="showEditBox('{{ this._id }}', '{{ this.reply }}')">Edit</button>
+    <button class="deleteBtn" onclick="deleteReply('{{ this._id }}')">Delete</button>
+    <!-- Add the edit box for replies (hidden initially) -->
+    <div id="editBox_{{ this._id }}" style="display: none;">
+        <textarea id="editText_{{ this._id }}">{{ this.reply }}</textarea>
+        <button onclick="saveEdit('{{ this._id }}')">Save</button>
+    </div>
+</div>

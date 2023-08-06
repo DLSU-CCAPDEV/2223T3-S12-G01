@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{{restoprofile.restoName}}</title>
+	<link rel="stylesheet" type="text/css" href="../../CSS/index.css">
+	<style>
+		body{
+			background-color: #FFD400;
+		}
+	</style>
+</head>
+<body>
+	<a href = '' style = "text-decoration: none;">
+		<div class="navLogo">
+			<img class="logo" src="../../CSS/logo.png" alt="">
+			<div class = "logo_name">
+				<h1 style = "color: black;">RATE-EAT-UP</h1>
+			</div>
+		</div>
+	</a>
+	
+	<div class="navMain">
+		<div class = "nav">
+			<a href=''>Profile</a>
+		</div>	
+		<div class = "nav">
+			<a href="/login">Logout</a>
+		</div>
+	</div>
+
+    <div class="profileSummary">
+        <div class = "profPic">
+            <img src="{{restoprofile.profPic}}" class = "picture" alt="">
+            <div style="font-size: 40px; font-family: Carter One">{{restoprofile.restoName}}</div>
+        </div>
+		<div class = "random-fact">
+			<div class = "quote-stuff">
+				<div class = "quote">{{restoprofile.address}}</div>
+				<div class = "quote_desc" style = "font-size: 20px; font-family: Carter One;">{{restoprofile.greetings}}</div>
+			</div>
+			<div style="font-size: 50px; width: 100%; font-family: Carter One; font-size: 40px;">About</h1>
+				<div style="font-size: 20px; font-family: Carter One;">{{restoprofile.about}}</div>
+			</div>
+		</div>
+    </div>
+
+    <!-- <section class="profileAbout" style="
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: stretch;
+    ">
+        <h1>About</h1>
+        <div></div>
+    </section> -->
+
+	<div class="newreview">			
+		<h1 style = "font-family: Carter One; margin-left: 10px;">Recent Reviews</h1>
+		<div class="reviewList">	
+			{{#each restoprofile.reviews}}
+				{{> review this}}
+			{{/each}}			
+		</div>
+	</div>
+
+	<script>
+        function showEditBox(replyId, content) {
+			const editBox = document.getElementById(`editBox_${replyId}`);
+			const editText = document.getElementById(`editText_${replyId}`);
+			editText.value = content;
+			editBox.style.display = "block";
+		}
+
+		function deleteReply(replyId) {
+			if (confirm("Are you sure you want to delete this reply?")) {
+				fetch(`/deleteReply/${replyId}`, {
+					method: "DELETE",
+				})
+					.then((response) => response.json())
+					.then((data) => {
+						// On successful deletion, remove the reply from the UI
+						const replyElement = document.getElementById(`reply_${replyId}`);
+						replyElement.remove();
+						window.location.reload();
+					})
+					.catch((error) => {
+						console.error("Error deleting reply:", error);
+						// Handle the error, show a message to the user, or take any appropriate action
+					});
+			}
+		}
+
+		function saveEdit(replyId) {
+			const editText = document.getElementById(`editText_${replyId}`).value;
+
+			if (editText !== '') {
+				fetch(`/editReply/${replyId}`, {
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({ reply: editText })
+				})
+				.then((response) => response.json())
+				.then((data) => {
+					// On successful edit, update the reply content and hide the edit box
+					const replyContent = document.getElementById(`replyContent_${replyId}`);
+					if (replyContent) {
+						replyContent.textContent = data.reply;
+					}
+					const editBox = document.getElementById(`editBox_${replyId}`);
+					if (editBox) {
+						editBox.style.display = "none";
+					}
+				})
+				.catch((error) => {
+					console.error("Error editing reply:", error);
+					// Handle the error, show a message to the user, or take any appropriate action
+				});
+			} else {
+				// Handle empty reply content (if needed)
+			}
+		}
+    </script>
+
+</body>
+</html>

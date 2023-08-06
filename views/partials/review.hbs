@@ -1,0 +1,84 @@
+<div class="review">
+	<div class="username"><a href="">{{ this.uname }}</a></div>
+	<div class="date">{{this.date}}</div>
+	<div class="restoName"><a href="">{{this.reviewing}}</a></div>
+	<hr>
+	<div class="revMain">{{this.post}}</div>
+	{{#if this.reply}}
+		{{#each this.reply}}
+			{{> reply this}}
+		{{/each}}
+    {{/if}}
+
+	<!-- Add the "Reply" button -->
+        <div class="editProfileButtonDIV" id="showFormBtn">
+            <button class="replyBtn" onclick="showReplyForm('{{ this._id }}')">Reply</button>
+        </div>
+
+	<div class="likeDislike">
+        <button onclick="likeReview('{{ this._id }}', {{ this.likes }}, {{ this.dislike }})">Like ({{ this.likes }})</button>
+        <button onclick="dislikeReview('{{ this._id }}', {{ this.likes }}, {{ this.dislike }})">Dislike ({{ this.dislike }})</button>
+    </div>
+</div>
+
+<script>
+	function likeReview(reviewId, currentLikes, currentDislike) {
+        $.post(`/likeReview/${reviewId}`, function (data) {
+            // Update the like count on the UI if the number of likes has changed
+            if (data.likes !== currentLikes) {
+                window.location.reload();
+            }
+        });
+    }
+
+    function dislikeReview(reviewId, currentLikes, currentDislike) {
+        $.post(`/dislikeReview/${reviewId}`, function (data) {
+            // Update the dislike count on the UI if the number of dislikes has changed
+            if (data.dislike !== currentDislike) {
+                window.location.reload();
+            }
+        });
+    }
+
+	function showReplyForm(reviewId) {
+        // Check if the reply form already exists
+        if ($("#replyFormContainer").length === 0) {
+            // Create the reply form
+            var form = $('<form id="replyForm"></form>'); // Create form element
+            form.append('<label for="reply">Reply:</label><br>'); // Add label
+            form.append('<textarea id="reply" name="reply" rows="4" cols="50" required></textarea><br>'); // Add text area
+            form.append('<button type="submit">Submit</button>'); // Add submit button
+            
+            // Add the form to the container div
+            form.appendTo("#showFormBtn");
+        }
+
+        // Add the reviewId as a hidden input in the form
+        $("#replyForm").append(`<input type="hidden" name="reviewId" value="${reviewId}">`);
+
+        // Show the reply form
+        $("#replyFormContainer").show();
+    }
+
+    // Function to handle form submission
+    $(document).on("submit", "#replyForm", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get the values from the form
+        const reviewId = $(this).find('input[name="reviewId"]').val();
+        const reply = $("#reply").val().trim();
+
+        if (reply !== '') {
+            // Send the reply data to the server
+            $.post(`/replyReview/${reviewId}`, { reply }, function (data) {
+                // On successful submission, reload the page to see the new reply
+                location.reload();
+            });
+        } else {
+            // Handle empty reply (if needed)
+        }
+
+        // Hide the reply form after submission
+        $("#replyFormContainer").hide();
+    });
+</script>

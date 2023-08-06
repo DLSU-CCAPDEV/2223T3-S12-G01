@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Restaurant List</title>
+	<link rel="stylesheet" type="text/css" href="../../CSS/index.css">
+	<style>
+		body{
+			background-color: #FFD400;
+		}
+	</style>
+</head>
+<body>
+	{{>navbar flag=flag uname=curUser}}
+
+	<h1 style = "margin-left: 10px; font-family: Carter One;">Restaurants</h1>
+	<div class="restoList">
+        {{#each restaurants}}
+            <a href="/resto/{{this.email}}" class="restoListItem">
+                <div>
+                    <img src="{{this.profPic}}" alt="">
+                    <h3>{{this.restoName}}</h3>
+                </div>            
+                <div style="font-size: 15px; font-family: Carter One;">{{this.greetings}}</div>
+            </a>
+        {{/each}}
+    </div>
+</body>
+</html>

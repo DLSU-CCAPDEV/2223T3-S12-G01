@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="../../../CSS/login.css">
+	<link rel="stylesheet" type="text/css" href="../../../CSS/index.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="../js/validator.min.js" type="text/javascript"></script>
+	<script src="../js/login.js" type="text/javascript"></script>
+
+</head>
+<body>
+	<a href = "/restolist" style = "text-decoration: none;">
+		<div class="navLogo">
+			<img class="logo" src="../../CSS/logo.png" alt="">
+			<div class = "logo_name">
+				<h1 style = "color: black;">RATE-EAT-UP</h1>
+			</div>
+		</div>
+	</a>
+	
+	<div class = "login">
+		<form id="logincheck" method="post" action="/logincheck">
+			<h1 style = "color: white;"> Login Here </h1>
+
+			<div>
+				<label for = "uname"> Username: </label>
+				<input type="text" name="uname" id = "username">
+				<p id="uNameError" class="error">{{uNameError}}</p>
+			</div>
+			<div>
+				<label for= "password">Password:</label>
+				<input type="password" name="password" id="user_pw">
+				<p id="passwordError" class="error">{{passwordError}}</p>
+			</div>
+			<div class = "login_button">
+				<button type="submit" id="submit" disabled>Login</button>
+				<p id="submitError" class="error">{{submitError}}</p>
+			</div>
+			<div class = "guest_button">
+				<a href="/restolist" style = "text-decoration: none;">Enter as Guest</a>
+			</div>
+			<div class = "warning"><a href="/signup" style = "text-decoration: none;">Do not have an account? Sign Up Now</a></div>
+			<div class="warning"><a href="/restologin" style = "text-decoration: none">Own an establishment? Login to your Establishment</a></div>
+		</form>
+	</div>
+</body>
+</html>

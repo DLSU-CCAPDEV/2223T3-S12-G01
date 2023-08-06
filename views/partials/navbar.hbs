@@ -1,0 +1,40 @@
+<div>
+    <a href = "/restolist" style = "text-decoration: none;">
+		<div class="navLogo">
+			<img class="logo" src="../../../CSS/logo.png" alt="">
+			<div class = "logo_name">
+				<h1 style = "color: black;">RATE-EAT-UP</h1>
+			</div>
+		</div>
+	</a>
+	
+	<div class="navMain">
+		{{!-- <div class = "nav">
+			<a href="/home">Home</a>
+		</div> --}}
+		<div class = "nav">
+			<a href="/restolist">Restaurants</a>
+		</div>	
+		{{#if flag}}
+			{{#if owner}}
+				<div class = "nav">
+					<a href="">Profile</a>
+				</div>		
+			{{else}}
+				<div class = "nav">
+					<a href="../profile/{{uname}}">Profile</a>
+				</div>	
+			{{/if}}
+			<div class = "nav">
+				<a href="/logout">Logout</a>
+			</div>
+			<div class = "nav">
+				<a href="">{{uname}}</a>
+			</div>
+		{{else}}
+			<div class = "nav">
+				<a href="/login">Login</a>
+			</div>
+		{{/if}}
+	</div>
+</div>

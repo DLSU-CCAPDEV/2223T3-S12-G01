@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Khand&family=Raleway&display=swap');
+
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #2E294E;
+}
+label, input {
+	margin-bottom: 20px;
+}
+
+/* Logo Design */
+.logo_name {
+	font-family: Carter One;
+	font-size: 30;
+	margin-left: 15px;
+	margin-top: 4px;
+}
+
+.navLogo{
+	background-color: #E4FDE1;
+	position: static;
+	height: 6%;
+	display: flex;
+}
+
+.navLogo h1{
+	display: inline;
+}
+
+.logo{
+	display: inline;
+	width: 40px;
+	height: 40px;
+	margin-left: 20px;
+	margin-top: 7px;
+}
+
+/* Navigation Bar */
+.navMain {
+	display: flex;
+	background-color: #EADEDA;
+}
+
+.nav {
+	padding-left: 20px;
+}
+
+.navMain a {
+	font-size: 30px;
+	font-family: Carter One;
+	color: black;
+	text-decoration: none;
+}
+
+.navMain a:hover {
+	border-bottom: 5px solid #CDBDB8;
+}
+
+.topnav a.active {
+  border-bottom: 5px solid #CDBDB8;
+}
+
+/*Categories*/
+
+.genList{
+	display: flex;
+	/* flex-direction: column; */
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.gListItem{
+    margin: 0 5% ;
+    padding: 0.5% 3%;
+    font-size: 17px;
+    background-color: #D90368;
+    border-radius: 20%;
+	text-align: center;
+}
+.gListItem img{
+    /* max-width: 10%;
+    max-height: 10%; */
+    width: 100px;
+    border-radius: 100%;
+}
+
+.genList .gListItem a{
+	text-decoration: none;
+	color: black;
+}
+
+.gListItem:hover {
+	border: 5px solid #BE005A;
+}
+
+.gListItem:active {
+	border: 5px solid #BE005A;
+}
+
+/*Latest Reviews*/
+
+.review{
+    border: 0.5px solid black;
+	width: 60%;
+    margin: 1% 0;
+	border-radius: 10px;
+}
+
+.genList h3 {
+	font-size: 20px;
+	font-family: Carter One;
+}
+
+.newreview {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	/*justify-content: center;*/	
+	align-items: center;
+}
+
+.newreview .review {
+	background-color: #EADEDA;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.newreview .review a {
+	text-decoration: none;
+	color: black;
+}
+
+.newreview .review .username {
+	font-family: Khand;
+	margin-left: 10px;
+}
+
+.newreview .review .rating {
+	font-family: Khand;
+	margin-left: 10px;
+	padding-top: 0px;
+}
+
+.newreview .review .comment {
+	font-family: Khand;
+	margin-left: 10px;
+}
+
+
+.newreview .review .date {
+	font-family: Khand;
+	margin-left: 10px;
+}
+
+.newreview .review .restoName {
+	font-family: Khand;
+	margin-left: 10px;
+}
+
+.newreview .review .revMain {
+	font-family: Raleway;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-bottom: 10px;
+	text-align: justify;
+}
+
+.newreview .review button {
+	border-radius: 40px;
+	font-family: Carter One;
+	display: block;
+	display: inline-block;
+	font-size: 16px;
+	width: 10%;
+	height: 40px;
+	margin-right: 5px;
+}
+
+.newreview .review .likeDislike {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.reviewList {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	/*justify-content: center;*/	
+	align-items: center;
+}
+
+.reviewList .review {
+	background-color: #EADEDA;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.reviewList .review a {
+	text-decoration: none;
+	color: black;
+}
+
+.reviewList .review .username {
+	font-family: Khand;
+	margin-left: 10px;
+}
+
+.reviewList .review .rating {
+	font-family: Khand;
+	margin-left: 10px;
+	padding-top: 0px;
+}
+
+.reviewList .review .comment {
+	font-family: Khand;
+	margin-left: 10px;
+}
+
+
+.reviewList .review .date {
+	font-family: Khand;
+	margin-left: 10px;
+}
+
+.reviewList .review .restoName {
+	font-family: Khand;
+	margin-left: 10px;
+}
+
+.reviewList .review .revMain {
+	font-family: Raleway;
+	margin-left: 10px;
+	margin-right: 10px;
+	text-align: justify;
+}
+
+.reviewList .review button {
+	border-radius: 40px;
+	font-family: Carter One;
+	display: block;
+	display: inline-block;
+	font-size: 16px;
+	width: 10%;
+	height: 40px;
+	margin-right: 5px;
+}
+
+.reviewList .review .likeDislike {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px;
+}
+
+/*Create Review*/
+.review_resto{
+	/* flex-direction: column; */
+	display: flex;
+	justify-content: center;
+	align-self: flex-start;
+	align-items: center;
+	text-align: center;
+	min-height: 80vh;
+	font-family: Carter One;
+	background-color: #EADEDA;
+}
+
+.review_resto label {
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+	vertical-align: top;
+	font-size: 60;
+	color: black;
+}
+
+button {
+	background-color: #D90368;
+	border-radius: 40px;
+	color: white;
+	font-family: Carter One;
+	display: block;
+	display: inline-block;
+	font-size: 16px;
+	width: 60%;
+	height: 40px;
+}
+
+
+
+/*Restaurant View*/
+.logo_nam {
+	display: flex;
+	border-bottom-color: red;
+}
+
+.image {
+	width: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.resto_logo {
+	width: 60%;
+	height: suto;
+	display: block;
+	align-items: center;
+}
+
+.info .resto_name{
+	font-family: Carter One;
+	font-size: 40px;
+}
+
+.info .about {
+	font-family: Carter One;
+	font-size: 40px;
+}
+
+.info .resto_desc {
+	font-family: Carter One;
+	font-size: 20px;	
+}
+
+.info .resto_location {
+	font-family: Carter One;
+	font-size: 40px;
+}
+
+.info .g_map {
+	font-family: Carter One;
+	font-size: 20px;
+}
+
+.resto_rev .reviews {
+	font-family: Carter One;
+	font-size: 40px;
+}
+
+/* Profile */
+.profileSummary {
+	display: flex;
+	margin: 5% 3%;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-content: stretch;
+}
+
+.profPic {	
+	max-width: 30%;
+	margin: 5px;
+}
+
+.profPic .fullname{
+	display: flex;	
+	margin: 5px;
+}
+
+.random-fact {
+	max-width: 65%;
+	margin: 20px;
+}
+
+.quote {
+	font-size: 40px;
+	align-self: right;
+	vertical-align: top;
+	font-family: Carter One;
+}
+
+.picture {
+	width: 10rem;
+	height: 10rem;
+	border-radius: 20%;
+}
+
+/* Edit Profile Picture*/
+.edit {
+	display: flex;
+	justify-content: center;
+	align-self: flex-start;
+	align-items: center;
+	text-align: center;
+	min-height: 80vh;
+	font-family: Carter One;
+}
+
+#profileForm {
+	margin: 5% 3%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: stretch;
+}
+
+/* Restaurant List */
+.restoList{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: normal;
+	align-content: normal;
+	margin: auto;
+	width: 50%;
+}
+
+.restoListItem{
+    margin: 0.5% 5% ;
+    padding: 1.5% 3%;
+    font-size: 17px;
+    background-color: #D90368;
+    border-radius: 20%;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+	align-items: center;
+	align-content: normal;
+}
+
+.restoListItem img{
+    /* max-width: 10%;
+    max-height: 10%; */
+    width: 100px;
+    border-radius: 100%;
+}
+
+.restoList .restoListItem a{
+	text-decoration: none;
+	color: black;
+}
+
+.restoListItem:hover {
+	border: 5px solid #BE005A;
+}
+
+.restoListtem:active {
+	border: 5px solid #BE005A;
+}
+
+.editProfileButtonDIV {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+	width: 20%;
+}
+

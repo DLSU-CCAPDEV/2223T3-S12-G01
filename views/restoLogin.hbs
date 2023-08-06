@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Establishment Login</title>
+	<link rel="stylesheet" type="text/css" href="../../../CSS/login.css">
+	<script src="../js/login.js" type="text/javascript"></script>
+
+</head>
+<body>
+	<a href = "/restolist" style = "text-decoration: none;">
+		<div class="navLogo">
+			<img class="logo" src="../../CSS/logo.png" alt="">
+			<div class = "logo_name">
+				<h1 style = "color: black;">RATE-EAT-UP</h1>
+			</div>
+		</div>
+	</a>
+	
+	<div class = "login">
+		<form id="restoLoginCheck" method="post" action="/restoLoginCheck">			
+			<h1 style = "color: white;"> Login Here </h1>
+
+			<div>
+			<label for = "user_email"> Email: </label>
+			<input type="email" name="email" id = "user_email">
+			<br>
+			</div>
+			
+			<div>
+				<label for= "password">Password:</label>
+				<input type="password" name="password" id="user_pw">
+				<br>
+			</div>
+			
+			<div class = "login_button">
+				<button>Login</button>
+			</div class = "guest_button">
+			<div>
+				<a href="/restolist" style = "text-decoration: none;">Enter as Guest</a>
+			</div>
+			
+			<div class = "warning"><a href="/signup" style = "text-decoration: none;">Do not have an account? Sign Up Now</a></div>
+		</form>
+	</div>
+</body>
+</html>

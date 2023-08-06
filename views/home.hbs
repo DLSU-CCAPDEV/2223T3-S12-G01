@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Home Page</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/index.css">
+	<style>
+		body{
+			background-color: #FFD400;
+		}
+	</style>
+</head>
+<body>
+	{{>navbar flag=flag uname=curUser}}
+<!-- 
+	Username
+	Date
+
+	Name of Resto (bolded)
+	Review proper
+	Likes and dislikes 
+-->
+	<h1 style = "font-family: Carter One; margin-left: 10px;">Recent Reviews</h1>
+	<div class="reviewList">
+		{{#each reviews}}
+			{{> review this}}
+			{{#each this.replies}}
+				{{> repliy this}}
+			{{/each}}
+		{{/each}}
+	</div>
+</body>
+</html>
